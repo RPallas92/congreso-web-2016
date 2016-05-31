@@ -1,70 +1,195 @@
-require('../support');
-var _ = require('ramda');
+var R = require('ramda');
   
 // Example Data
+var programmingLanguages = ["Haskell", "Elm", "PureScript", "Java", "Scala"];
+
+var newReleases = [
+      {
+        "id": 70111470,
+        "title": "Die Hard",
+        "boxart": "http://cdn-0.nflximg.com/images/2891/DieHard.jpg",
+        "uri": "http://api.netflix.com/catalog/titles/movies/70111470",
+        "rating": 4.0,
+        "bookmark": []
+      },
+      {
+        "id": 654356453,
+        "title": "Bad Boys",
+        "boxart": "http://cdn-0.nflximg.com/images/2891/BadBoys.jpg",
+        "uri": "http://api.netflix.com/catalog/titles/movies/70111470",
+        "rating": 5.0,
+        "bookmark": [{ id:432534, time:65876586 }]
+      },
+      {
+        "id": 65432445,
+        "title": "The Chamber",
+        "boxart": "http://cdn-0.nflximg.com/images/2891/TheChamber.jpg",
+        "uri": "http://api.netflix.com/catalog/titles/movies/70111470",
+        "rating": 4.0,
+        "bookmark": []
+      },
+      {
+        "id": 675465,
+        "title": "Fracture",
+        "boxart": "http://cdn-0.nflximg.com/images/2891/Fracture.jpg",
+        "uri": "http://api.netflix.com/catalog/titles/movies/70111470",
+        "rating": 5.0,
+        "bookmark": [{ id:432534, time:65876586 }]
+      }
+    ];
+
+
+var movieLists = [
+      {
+        name: "Instant Queue",
+        videos : [
+          {
+            "id": 70111470,
+            "title": "Die Hard",
+            "boxarts": [
+              { width: 150, height:200, url:"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" },
+              { width: 200, height:200, url:"http://cdn-0.nflximg.com/images/2891/DieHard200.jpg" }
+            ],
+            "url": "http://api.netflix.com/catalog/titles/movies/70111470",
+            "rating": 4.0,
+            "bookmark": []
+          },
+          {
+            "id": 654356453,
+            "title": "Bad Boys",
+            "boxarts": [
+              { width: 200, height:200, url:"http://cdn-0.nflximg.com/images/2891/BadBoys200.jpg" },
+              { width: 150, height:200, url:"http://cdn-0.nflximg.com/images/2891/BadBoys150.jpg" }
+
+            ],
+            "url": "http://api.netflix.com/catalog/titles/movies/70111470",
+            "rating": 5.0,
+            "bookmark": [{ id:432534, time:65876586 }]
+          }
+        ]
+      },
+      {
+        name: "New Releases",
+        videos: [
+          {
+            "id": 65432445,
+            "title": "The Chamber",
+            "boxarts": [
+              { width: 150, height:200, url:"http://cdn-0.nflximg.com/images/2891/TheChamber150.jpg" },
+              { width: 200, height:200, url:"http://cdn-0.nflximg.com/images/2891/TheChamber200.jpg" }
+            ],
+            "url": "http://api.netflix.com/catalog/titles/movies/70111470",
+            "rating": 4.0,
+            "bookmark": []
+          },
+          {
+            "id": 675465,
+            "title": "Fracture",
+            "boxarts": [
+              { width: 200, height:200, url:"http://cdn-0.nflximg.com/images/2891/Fracture200.jpg" },
+              { width: 150, height:200, url:"http://cdn-0.nflximg.com/images/2891/Fracture150.jpg" },
+              { width: 300, height:200, url:"http://cdn-0.nflximg.com/images/2891/Fracture300.jpg" }
+            ],
+            "url": "http://api.netflix.com/catalog/titles/movies/70111470",
+            "rating": 5.0,
+            "bookmark": [{ id:432534, time:65876586 }]
+          }
+        ]
+      }
+    ];
+
 
 // Exercise 1:
 // ============
-// Print all names of the array
-var exercise1 = function(){
-  var programmingLanguages = ["Haskell", "Elm", "PureScript", "Java", "Scala"];
-  //Print all names
+// Añade a allLanguages todos los elementos de programmingLanguages utilizando forEach y devuelve allLanguages
+var exercise1 = function(programmingLanguages){
+  var allLanguages = []
+
+  //TODO
+
+
+  return allLanguages 
 } 
 
-// Exercise 2:
-// ============
-// use _.compose(), _.prop() and _.head() to retrieve the name of the first car
-var nameOfFirstCar = undefined;
+//Exercise 2
+//====================
+// Proyecta {id, title} en videoAndTitlePairs y devuelvelo
+var exercise2 = function(){
+  var videoAndTitlePairs = [];
+
+  //TODO
 
 
-// Exercise 3:
-// ============
-// Use the helper function _average to refactor averageDollarValue as a composition
-var _average = function(xs) { return _.reduce(add, 0, xs) / xs.length; }; // <- leave be
+  return videoAndTitlePairs;
+    
+}
 
-var averageDollarValue = function(cars) {
-  var dollar_values = _.map(function(c) { return c.dollar_value; }, cars);
-  return _average(dollar_values);
+//Exercise 3
+//====================
+// Lo mismo que el ejercicio 2, utilizando map
+var exercise3 = function(){
+  //TODO
+}
+
+//Exercise 4:
+//=============
+// Filtra los nuevos lanzamientos cuyo rating sea mayor que 4 y devuelvelos
+var exercise4 = function(){
+  //TODO
+}
+
+//Exercise 5:
+//=============
+// Encadena las funciones filter y map para seleccionar el id y el title de todos los videos con rating 5 y devuelve el resultado
+var exercise5 = function(){
+  //TODO
+}
+
+//Exercise 6: 
+//================
+// Implementa concatAll
+
+Array.prototype.concatAll = function() {
+  var results = [];
+  //TODO
+
+  return results;
 };
 
 
-// Exercise 4:
-// ============
-// Write a function: sanitizeNames() using compose that takes an array of cars and returns a list of lowercase and underscored names: e.g: sanitizeNames([{name: "Ferrari FF"}]) //=> ["ferrari_ff"].
+//Exercise 7
+//===============
+//  Utiliza map y concatAll para aplanar movieLists en una lista de ids de video
 
-var _underscore = _.replace(/\W+/g, '_'); //<-- leave this alone and use to sanitize
-
-var sanitizeNames = undefined;
-
-
-// Bonus 1:
-// ============
-// Refactor availablePrices with compose.
-
-var availablePrices = function(cars) {
-  var available_cars = _.filter(_.prop('in_stock'), cars);
-  return available_cars.map(function(x){
-    return accounting.formatMoney(x.dollar_value)
-  }).join(', ');
-};
+var exercise7 = function(){ 
+  //TODO
+}
 
 
-// Bonus 2:
-// ============
-// Refactor to pointfree. Hint: you can use _.flip()
+//Exercise 8
+//===============
+// Utiliza una o más meves map, concatAll y filter para crear un array con los siguientes ítems a partir de movieLists
+// [
+//     {"id": 675465,"title": "Fracture","boxart":"http://cdn-0.nflximg.com/images/2891/Fracture150.jpg" },
+//     {"id": 65432445,"title": "The Chamber","boxart":"http://cdn-0.nflximg.com/images/2891/TheChamber150.jpg" },
+//     {"id": 654356453,"title": "Bad Boys","boxart":"http://cdn-0.nflximg.com/images/2891/BadBoys150.jpg" },
+//     {"id": 70111470,"title": "Die Hard","boxart":"http://cdn-0.nflximg.com/images/2891/DieHard150.jpg" }
+// ];
+var exercise8 = function(){ 
+  //TODO
+}
 
-var fastestCar = function(cars) {
-  var sorted = _.sortBy(function(car){ return car.horsepower }, cars);
-  var fastest = _.last(sorted);
-  return fastest.name + ' is the fastest';
-};
 
 
-module.exports = { CARS: CARS,
-                   isLastInStock: isLastInStock,
-                   nameOfFirstCar: nameOfFirstCar,
-                   fastestCar: fastestCar,
-                   averageDollarValue: averageDollarValue,
-                   availablePrices: availablePrices,
-                   sanitizeNames: sanitizeNames
+
+
+
+module.exports = { programmingLanguages: programmingLanguages,
+                   exercise1: exercise1,
+                   exercise2: exercise2,
+                   exercise3: exercise3,
+                   exercise4: exercise4,
+                   exercise5: exercise5,
+                   exercise7: exercise7,
+                   exercise8: exercise8
                  };
