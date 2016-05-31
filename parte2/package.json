@@ -1,0 +1,21 @@
+{
+  "name": "Parte2_Exercises",
+  "version": "0.0.1",
+  "description": "Ejercicios de la parte 2",
+  "main": "index.js",
+  "dependencies": {
+    "accounting": "^0.4.1",
+    "chai": "^1.9.1",
+    "ramda": "^0.13.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.9.1",
+    "babel-preset-es2015": "^6.9.0",
+    "mocha": "^1.17.1"
+  },
+  "scripts": {
+    "test": "mocha --compilers js:babel-core/register exercises/*spec.js"
+  },
+  "author": "Ricardo Pallas",
+  "license": "MIT"
+}
