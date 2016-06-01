@@ -1,0 +1,33 @@
+{
+  "name": "congreso-web-app-youtube",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "./node_modules/.bin/browserify src/index.js -t babelify --outfile bundle.js",
+    "watch": "./node_modules/.bin/nodemon --exec npm run build",
+    "start": "./node_modules/.bin/http-server"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "daggy": "0.0.1",
+    "data.either": "^1.3.0",
+    "data.maybe": "^1.2.1",
+    "data.task": "^3.0.0",
+    "es6-promise": "^3.2.1",
+    "isomorphic-fetch": "^2.2.1",
+    "ramda": "^0.19.0",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.3.17",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.3.13",
+    "babelify": "^7.2.0",
+    "browserify": "^12.0.1",
+    "http-server": "^0.8.5",
+    "nodemon": "^1.8.1"
+  }
+}
