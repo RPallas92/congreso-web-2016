@@ -65,6 +65,15 @@ describe("Parte 2 Exercises", function(){
     ];
 
 
+    var exercise9Result = 'http://cdn-0.nflximg.com/images/2891/Fracture425.jpg';
+
+    var exercise10Result = [ 
+      { videoId: 70111470, bookmarkId: 470 },
+      { videoId: 654356453, bookmarkId: 453 },
+      { videoId: 65432445, bookmarkId: 445 }
+    ]
+
+
   //TESTS
   it('Exercise 1', function(){
     assert.deepEqual(E.exercise1(programmingLanguages), programmingLanguages);
@@ -89,5 +98,12 @@ describe("Parte 2 Exercises", function(){
   it('Exercise 8', function(){
     assert.deepEqual(E.exercise8(), exercise8Result);
   });
+  it('Exercise 9', function(){
+    assert.equal(E.exercise9(), exercise9Result);
+  });
+  it('Exercise 10', function(){
+    assert.deepEqual(E.exercise10(), exercise10Result);
+  });
+
 
 });
