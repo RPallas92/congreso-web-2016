@@ -1,16 +1,14 @@
-import { compose, composeP, invoker, lift, map, prop } from 'ramda';
+import { compose, composeP, invoker, map, prop, chain } from 'ramda';
 import Either from 'data.either';
 import Maybe from 'data.maybe';
 import Task from 'data.task';
 import daggy from 'daggy';
-import fetch from 'isomorphic-fetch'; 
+import fetch from 'isomorphic-fetch';
 
 const Video = daggy.tagged('id', 'thumbnail', 'url', 'title');
 
 export const Empty = Either.Left('Search for YouTube videos');
 
-// Alias for Url
-// type Url = String;
 
 // makeUrl :: String -> Maybe Url
 const makeUrl = (term) =>
@@ -31,7 +29,7 @@ const httpGet = (url) =>
 // maybeHttpGet :: e -> Maybe String -> Task Error (Either e JSON)
 const maybeHttpGet = (e) => (url) =>
   url.cata({
-    Just: compose(lift(Either.Right), httpGet),
+    Just: compose(mapa(Either.Right), httpGet),
     Nothing: () => Task.of(e)
   });
 
@@ -48,4 +46,4 @@ const toVideo = json => {
 const toVideos = compose(map(toVideo), prop('items'));
 
 // searchVideos :: String -> Task Error (Either Empty [Video])
-export const searchVideos = compose(lift(lift(toVideos)), maybeHttpGet(Empty), makeUrl);
+export const searchVideos = compose(map(map(toVideos)), maybeHttpGet(Empty), makeUrl)

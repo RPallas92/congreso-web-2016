@@ -1,9 +1,9 @@
-import { compose, composeP, invoker, lift, map, prop } from 'ramda';
+import { compose, composeP, invoker, map, prop } from 'ramda';
 import Either from 'data.either';
 import Maybe from 'data.maybe';
 import Task from 'data.task';
 import daggy from 'daggy';
-import fetch from 'isomorphic-fetch'; 
+import fetch from 'isomorphic-fetch';
 
 
 

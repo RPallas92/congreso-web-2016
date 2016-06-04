@@ -36200,7 +36200,7 @@ var httpGet = function httpGet(url) {
 var maybeHttpGet = function maybeHttpGet(e) {
   return function (url) {
     return url.cata({
-      Just: (0, _ramda.compose)((0, _ramda.lift)(_data2.default.Right), httpGet),
+      Just: (0, _ramda.compose)((0, _ramda.map)(_data2.default.Right), httpGet),
       Nothing: function Nothing() {
         return _data6.default.of(e);
       }
@@ -36222,7 +36222,7 @@ var toVideo = function toVideo(json) {
 var toVideos = (0, _ramda.compose)((0, _ramda.map)(toVideo), (0, _ramda.prop)('items'));
 
 // searchVideos :: String -> Task Error (Either Empty [Video])
-var searchVideos = exports.searchVideos = (0, _ramda.compose)((0, _ramda.lift)((0, _ramda.lift)(toVideos)), maybeHttpGet(Empty), makeUrl);
+var searchVideos = exports.searchVideos = (0, _ramda.compose)((0, _ramda.map)((0, _ramda.map)(toVideos)), maybeHttpGet(Empty), makeUrl);
 
 },{"daggy":297,"data.either":299,"data.maybe":300,"data.task":302,"isomorphic-fetch":331,"ramda":333}],468:[function(require,module,exports){
 'use strict';
