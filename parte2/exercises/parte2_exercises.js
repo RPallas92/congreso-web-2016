@@ -113,6 +113,9 @@ var exercise1 = function(programmingLanguages){
   var allLanguages = []
 
   //TODO
+  programmingLanguages.forEach( function(a){
+      allLanguages.push(a);
+  })
 
 
   return allLanguages 
