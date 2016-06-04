@@ -29,7 +29,7 @@ const httpGet = (url) =>
 // maybeHttpGet :: e -> Maybe String -> Task Error (Either e JSON)
 const maybeHttpGet = (e) => (url) =>
   url.cata({
-    Just: compose(mapa(Either.Right), httpGet),
+    Just: compose(map(Either.Right), httpGet),
     Nothing: () => Task.of(e)
   });
 

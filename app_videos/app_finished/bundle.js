@@ -36142,7 +36142,7 @@ var App = function (_Component) {
 
 exports.default = App;
 
-},{"./domain/model":467,"./styles/styles":468,"./views/VideoSearch":471,"data.either":299,"react":463}],467:[function(require,module,exports){
+},{"./domain/model":467,"./styles/styles":468,"./views/VideoSearch":472,"data.either":299,"react":463}],467:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36177,9 +36177,6 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Video = _daggy2.default.tagged('id', 'thumbnail', 'url', 'title');
 
 var Empty = exports.Empty = _data2.default.Left('Search for YouTube videos');
-
-// Alias for Url
-// type Url = String;
 
 // makeUrl :: String -> Maybe Url
 var makeUrl = function makeUrl(term) {
@@ -36316,6 +36313,41 @@ exports.default = Embed;
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var _styles = require('../styles/styles');
+
+var _styles2 = _interopRequireDefault(_styles);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var SearchBar = function SearchBar(_ref) {
+    var onSearch = _ref.onSearch;
+    return _react2.default.createElement(
+        'div',
+        { style: _styles2.default.inputContainer },
+        _react2.default.createElement('input', {
+            style: _styles2.default.input,
+            placeholder: 'Search for videos',
+            autoFocus: true,
+            onChange: function onChange(_ref2) {
+                var t = _ref2.target;
+                return onSearch(t.value);
+            } })
+    );
+};
+
+exports.default = SearchBar;
+
+},{"../styles/styles":468,"react":463}],471:[function(require,module,exports){
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
@@ -36359,7 +36391,7 @@ var SearchResults = function SearchResults(_ref) {
 
 exports.default = SearchResults;
 
-},{"../styles/styles":468,"./Embed":469,"react":463}],471:[function(require,module,exports){
+},{"../styles/styles":468,"./Embed":469,"react":463}],472:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
@@ -36373,6 +36405,10 @@ var _react2 = _interopRequireDefault(_react);
 var _SearchResults = require('./SearchResults');
 
 var _SearchResults2 = _interopRequireDefault(_SearchResults);
+
+var _SearchBar = require('./SearchBar');
+
+var _SearchBar2 = _interopRequireDefault(_SearchBar);
 
 var _Embed = require('./Embed');
 
@@ -36390,18 +36426,7 @@ var VideoSearch = function VideoSearch(_ref) {
   return _react2.default.createElement(
     'div',
     { style: _styles2.default.container },
-    _react2.default.createElement(
-      'div',
-      { style: _styles2.default.inputContainer },
-      _react2.default.createElement('input', {
-        style: _styles2.default.input,
-        placeholder: 'Search for videos',
-        autoFocus: true,
-        onChange: function onChange(_ref2) {
-          var t = _ref2.target;
-          return onSearch(t.value);
-        } })
-    ),
+    _react2.default.createElement(_SearchBar2.default, { onSearch: onSearch }),
     results.cata({
       Right: function Right(videos) {
         return _react2.default.createElement(_SearchResults2.default, { videos: videos });
@@ -36419,7 +36444,7 @@ var VideoSearch = function VideoSearch(_ref) {
 
 exports.default = VideoSearch;
 
-},{"../styles/styles":468,"./Embed":469,"./SearchResults":470,"react":463}],472:[function(require,module,exports){
+},{"../styles/styles":468,"./Embed":469,"./SearchBar":470,"./SearchResults":471,"react":463}],473:[function(require,module,exports){
 'use strict';
 
 require('babel-polyfill');
@@ -36440,4 +36465,4 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), document.getElementById('root'));
 
-},{"./app/app":466,"babel-polyfill":1,"react":463,"react-dom":334}]},{},[472]);
+},{"./app/app":466,"babel-polyfill":1,"react":463,"react-dom":334}]},{},[473]);

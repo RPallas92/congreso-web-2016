@@ -1,17 +1,13 @@
 import React from 'react';
 import SearchResults from './SearchResults';
+import SearchBar from './SearchBar';
+
 import Embed from './Embed';
 import styles from '../styles/styles';
 
 const VideoSearch = ({ onSearch, results }) => (
   <div style={styles.container}>
-    <div style={styles.inputContainer}>
-      <input
-        style={styles.input}
-        placeholder="Search for videos"
-        autoFocus={true}
-        onChange={ ({ target: t }) => onSearch(t.value) }/>
-    </div>
+    <SearchBar onSearch={onSearch}/>
     {
       results.cata({
         Right: (videos) => {
